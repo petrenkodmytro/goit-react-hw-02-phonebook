@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import{FaUserMinus} from 'react-icons/fa'
 
 export const ContactList = ({ items, onDelete }) => {
   return (
@@ -8,7 +9,7 @@ export const ContactList = ({ items, onDelete }) => {
         <li key={item.id}>
           <span>{item.name}</span>
           <span>{item.number}</span>
-          <button onClick={()=>onDelete(item.id)}>Delete</button>
+          <button onClick={()=>onDelete(item.id)}><FaUserMinus/></button>
         </li>
       ))}
     </ul>

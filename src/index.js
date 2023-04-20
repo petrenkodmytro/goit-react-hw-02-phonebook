@@ -8,6 +8,7 @@ const theme = {
   colors: {
     accent: '#b7e6f5',
     main: '#f2f0ec',
+    error: '#f44141',
   },
 };
 
