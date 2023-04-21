@@ -6,9 +6,14 @@ import { Input, SearchField } from './Filter.styled';
 export const Filter = ({ value, onSearch }) => {
   return (
     <SearchField>
-      <MdPersonSearch size="18" />
-      Find contacts by name
-      <Input type="text" name="filter" value={value} onChange={onSearch} />
+      <MdPersonSearch size="22" />
+      <Input
+        type="text"
+        name="filter"
+        value={value}
+        onChange={onSearch}
+        placeholder="Find contacts by name"
+      />
     </SearchField>
   );
 };
