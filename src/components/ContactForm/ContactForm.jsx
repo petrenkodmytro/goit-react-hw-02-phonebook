@@ -1,11 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Formik, Field } from 'formik';
+import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { nanoid } from 'nanoid';
-import { FaUserPlus } from 'react-icons/fa';
-import { FormField, Form, ErrorMessage } from './ContactForm.styled';
+import { FaUserPlus, FaUser } from 'react-icons/fa';
+import { BsFillTelephoneFill } from 'react-icons/bs';
+import {
+  FormField,
+  Form,
+  ErrorMessage,
+  FormBtnAdd,
+  LabelWrapper,
+  FieldInput,
+} from './ContactForm.styled';
 
+// валідація полів форми
 const ContactSchema = Yup.object().shape({
   name: Yup.string()
     .matches(
@@ -24,6 +33,7 @@ const ContactSchema = Yup.object().shape({
 export const ContactForm = ({ onSave }) => {
   return (
     <Formik
+      // дивись документацію
       initialValues={{ name: '', number: '' }}
       validationSchema={ContactSchema}
       onSubmit={(values, actions) => {
@@ -33,20 +43,31 @@ export const ContactForm = ({ onSave }) => {
     >
       <Form>
         <FormField>
-          Name
-          <Field name="name" />
+          <LabelWrapper>
+            <FaUser size="16" />
+            Name
+          </LabelWrapper>
+          <FieldInput name="name" />
           <ErrorMessage name="name" component="div" />
         </FormField>
+
         <FormField>
-          Number
-          <Field name="number" />
+          <LabelWrapper>
+            <BsFillTelephoneFill size="16" />
+            Number
+          </LabelWrapper>
+          <FieldInput name="number" />
           <ErrorMessage name="number" component="div" />
         </FormField>
-        <button type="submit">
-          <FaUserPlus />
+        <FormBtnAdd type="submit">
+          <FaUserPlus size="16" />
           Add contact
-        </button>
+        </FormBtnAdd>
       </Form>
     </Formik>
   );
+};
+
+ContactForm.propTypes = {
+  onSave: PropTypes.func.isRequired,
 };

@@ -5,5 +5,5 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 16;
-  color: #010101;
+  color: ${p => p.theme.colors.main};
 `;
