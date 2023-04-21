@@ -14,4 +14,6 @@ export const SearchField = styled.label`
   justify-content: center;
   align-items: center;
   margin-top: 10px;
+  /* font-size: 14px; */
+  color: ${props => props.theme.colors.accentDark};;
 `;
